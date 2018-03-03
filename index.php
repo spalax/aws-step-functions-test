@@ -1,5 +1,5 @@
 <?php
-switch ($_SERVER['REQUEST_URI']) {
+switch ($_REQUEST['q']) {
     case '/sleep':
          file_put_contents('/tmp/out.log', time()." Called sleep \n");
          $data = ['res'=>'sleep'];
