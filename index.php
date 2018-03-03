@@ -1,7 +1,7 @@
 <?php
 switch ($_REQUEST['q']) {
     case '/sleep':
-         sleep(10);
+         sleep(2);
          $content = time()." Called /sleep 10 seconds \n";
          $data = ['res'=>'sleep'];
          break;
