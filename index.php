@@ -1,18 +1,19 @@
 <?php
 switch ($_REQUEST['q']) {
     case '/sleep':
-         file_put_contents('/tmp/out.log', time()." Called sleep \n", FILE_APPEND);
+         sleep(10);
+         $content = time()." Called /sleep 10 seconds \n";
          $data = ['res'=>'sleep'];
          break;
     case '/formalno':
-        file_put_contents('/tmp/out.log', time()." Called formalno \n", FILE_APPEND);
+        $content = time()." Called /formalno \n";
         $data = ['res'=>'formalno'];
         break;
     default:
-        file_put_contents('/tmp/out.log', time()." Called [DEFAUALT] \n", FILE_APPEND);
+        $content = time()." Called [DEFAULT] \n";
         $data = ['res'=>'default'];
 }
 
-
+file_put_contents('/tmp/out.log', $content, FILE_APPEND);
 header('Content-Type: application/json');
 echo json_encode($data);
